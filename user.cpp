@@ -18,7 +18,7 @@ std::string& check_choice(std::string& choice){
     }while(choice!="y"&&choice!="n");
 
 }
-std::string Site::add_data_of_users(std::string& password, std::string& login, std::string& mail_adss) {
+std::string Site::add_data_of_users() {
     std::string choice;
    do {
         std::cout << "input login user" << std::endl;
@@ -26,46 +26,47 @@ std::string Site::add_data_of_users(std::string& password, std::string& login, s
         std::cout << "input password user" << std::endl;
         std::getline(std::cin, password);
         std::cout << "input mail address user" << std::endl;
-        std::getline(std::cin, mail_adss);
-        User user(login, password, mail_adss);
+        std::getline(std::cin, mail_adds);
+        User user(login, password, mail_adds);
         users.push_back(user);
        std::cout<<"wish to continue[y/n]?"<<std::endl;
        check_choice(choice);
     } while (choice!=EXIT);
 }
-//std::string Site::add_data_of_users(std::string &password, std::string &login, std::string &mail_adss) {
-//
-//}
 
-std::string Site::view_data_of_users() {
-    std::string choice;
+
+void Site::view_data_of_users() {
     if(users.empty()) {
         std::cout<<"no users"<<std::endl;
-        return NULL;
+        return;
     }
-    do {
-        for (int i = 0; i < users.size(); i++) {
-            std::cout << "User " << i+1 << ": " << users[i].get_login() << ", " << users[i].get_password() << ", " << users[i].get_mail() << std::endl;
+    for (int i = 0; i < users.size(); i++) {
+        std::cout << "User " << i+1 << ": " << users[i].get_login() << ", " << users[i].get_password() << ", " << users[i].get_mail() << std::endl;
         }
-        std::cout<<"wish to continue[y/n]?"<<std::endl;
-        check_choice(choice);
-    } while (choice!=EXIT);
+
 }
 
-std::string Site::view_data_of_user() {
+void Site::view_data_of_user() {
     std::string choice;
     std::string login_user;
     if(users.empty())
     {
         std::cout<<"no users"<<std::endl;
-        return NULL;
+        return ;
     }
     do {
         std::cout<<"input login user"<<std::endl;
         std::getline(std::cin,login_user);
-        for (int i = 0; i < users.size(); i++) {
-            if(login_user==get_login())
-            std::cout << "User " << i+1 << ": " << users[i].get_login() << ", " << users[i].get_password() << ", " << users[i].get_mail() << std::endl;
+        int i=0;
+        while (i < users.size() && login_user != users[i].get_login()){
+            i++;
+        }
+        if (i < users.size()){
+            std::cout << "User " << i + 1 << ": " << users[i].get_login() << ", " << users[i].get_password() << ", "
+                      << users[i].get_mail() << std::endl;
+        }
+        else{
+            std::cout << "User not found" << std::endl;
         }
         std::cout<<"wish to continue[y/n]?"<<std::endl;
         check_choice(choice);

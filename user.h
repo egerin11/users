@@ -4,7 +4,6 @@
 
 
 #include <string>
-#include <utility>
 #include <vector>
 class User {
 public:
@@ -23,13 +22,15 @@ public:
 
 };
 class Site: User
-{public:
-    std::string add_data_of_users(std::string& password, std::string& login, std::string& mail_adss);
-private:
+{
+public:
     std::vector<User> users;
-    std::string view_data_of_users();
+    std::string add_data_of_users();
+    void view_data_of_users();
+    void view_data_of_user();
 
-   // std::string view_data_of_users(const std::vector<User>& users);
-    std::string  view_data_of_user();
 };
 #endif
+//private:
+//std::string view_data_of_users();
+//std::string  view_data_of_user();
