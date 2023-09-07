@@ -27,6 +27,7 @@ public:
     void add_data_of_users();
     void view_data_of_users();
     void view_data_of_user();
+    void update_user_information();
 
 };
 #endif

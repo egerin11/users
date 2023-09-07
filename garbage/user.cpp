@@ -2,6 +2,9 @@
 #include "../lib/user.h"
 #include "../lib/function.h"
 #define EXIT "n"
+#define LOG 1
+#define PAS 2
+#define MAIL 3
 inline std::string User::get_login() const {
     return login;
 }
@@ -16,7 +19,7 @@ void Site::add_data_of_users() {
     std::string choice;
     do {
         std::cout << "input login user" << std::endl;
-        check_length(login, std::getline);
+        check_login(login,users,std::getline);
         std::cout << "input password user" << std::endl;
         check_password(password, std::getline);
         std::cout << "input mail address user" << std::endl;
@@ -62,6 +65,41 @@ void Site::view_data_of_user() {
         std::cout<<"wish to continue[y/n]?"<<std::endl;
         check_choice(choice);
     }while(choice!=EXIT);
+}
+
+void Site::update_user_information() {
+    std::string choice;
+    std::string str;
+    int value;
+    while(get_valid_int()>users.size())
+    {
+        std::cout<<"no users"<<std::endl;
+    }
+    value=get_valid_int();
+    switch (value) {
+        case LOG:
+        {
+            std::cout<<"input new login"<<std::endl;
+            std::getline(std::cin,str);
+          users[value-1].login=str;
+        }
+            break;
+        case PAS:{
+            std::cout<<"input new password"<<std::endl;
+            std::getline(std::cin,str);
+            users[value-1].password=str;
+        }
+            break;
+        case MAIL:{
+            std::cout<<"input new mail"<<std::endl;
+            std::getline(std::cin,str);
+            users[value-1].mail_adds=str;
+        }
+            break;
+        default:{}
+
+
+    }
 }
 
 
