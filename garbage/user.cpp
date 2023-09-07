@@ -1,5 +1,6 @@
 #include <iostream>
-#include "user.h"
+#include "../lib/user.h"
+#include "../lib/function.h"
 #define EXIT "n"
 inline std::string User::get_login() const {
     return login;
@@ -11,30 +12,21 @@ inline std::string User::get_mail() const {
     return mail_adds;
 }
 
-
-std::string& check_choice(std::string& choice){
-    do {
-        std::getline(std::cin,choice);
-    }while(choice!="y"&&choice!="n");
-
-}
-std::string Site::add_data_of_users() {
+void Site::add_data_of_users() {
     std::string choice;
-   do {
+    do {
         std::cout << "input login user" << std::endl;
-        std::getline(std::cin, login);
+        check_length(login, std::getline);
         std::cout << "input password user" << std::endl;
-        std::getline(std::cin, password);
+        check_password(password, std::getline);
         std::cout << "input mail address user" << std::endl;
         std::getline(std::cin, mail_adds);
         User user(login, password, mail_adds);
         users.push_back(user);
-       std::cout<<"wish to continue[y/n]?"<<std::endl;
-       check_choice(choice);
-    } while (choice!=EXIT);
+        std::cout << "wish to continue[y/n]?" << std::endl;
+        check_choice(choice);
+    } while (choice != EXIT);
 }
-
-
 void Site::view_data_of_users() {
     if(users.empty()) {
         std::cout<<"no users"<<std::endl;
@@ -43,7 +35,6 @@ void Site::view_data_of_users() {
     for (int i = 0; i < users.size(); i++) {
         std::cout << "User " << i+1 << ": " << users[i].get_login() << ", " << users[i].get_password() << ", " << users[i].get_mail() << std::endl;
         }
-
 }
 
 void Site::view_data_of_user() {
@@ -52,7 +43,7 @@ void Site::view_data_of_user() {
     if(users.empty())
     {
         std::cout<<"no users"<<std::endl;
-        return ;
+        return;
     }
     do {
         std::cout<<"input login user"<<std::endl;

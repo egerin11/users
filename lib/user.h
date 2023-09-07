@@ -1,4 +1,3 @@
-
 #ifndef USERS_SITE_USER_H
 #define USERS_SITE_USER_H
 
@@ -25,7 +24,7 @@ class Site: User
 {
 public:
     std::vector<User> users;
-    std::string add_data_of_users();
+    void add_data_of_users();
     void view_data_of_users();
     void view_data_of_user();
 

@@ -55,11 +55,23 @@ build CMakeFiles/users_site.dir/main.cpp.o: CXX_COMPILER__users_site_Debug /home
   OBJECT_DIR = CMakeFiles/users_site.dir
   OBJECT_FILE_DIR = CMakeFiles/users_site.dir
 
-build CMakeFiles/users_site.dir/user.cpp.o: CXX_COMPILER__users_site_Debug /home/egerin/Projects/users_site/user.cpp || cmake_object_order_depends_target_users_site
-  DEP_FILE = CMakeFiles/users_site.dir/user.cpp.o.d
+build CMakeFiles/users_site.dir/garbage/user.cpp.o: CXX_COMPILER__users_site_Debug /home/egerin/Projects/users_site/garbage/user.cpp || cmake_object_order_depends_target_users_site
+  DEP_FILE = CMakeFiles/users_site.dir/garbage/user.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/users_site.dir
-  OBJECT_FILE_DIR = CMakeFiles/users_site.dir
+  OBJECT_FILE_DIR = CMakeFiles/users_site.dir/garbage
+
+build CMakeFiles/users_site.dir/garbage/function.cpp.o: CXX_COMPILER__users_site_Debug /home/egerin/Projects/users_site/garbage/function.cpp || cmake_object_order_depends_target_users_site
+  DEP_FILE = CMakeFiles/users_site.dir/garbage/function.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/users_site.dir
+  OBJECT_FILE_DIR = CMakeFiles/users_site.dir/garbage
+
+build CMakeFiles/users_site.dir/garbage/parse_file.cpp.o: CXX_COMPILER__users_site_Debug /home/egerin/Projects/users_site/garbage/parse_file.cpp || cmake_object_order_depends_target_users_site
+  DEP_FILE = CMakeFiles/users_site.dir/garbage/parse_file.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/users_site.dir
+  OBJECT_FILE_DIR = CMakeFiles/users_site.dir/garbage
 
 
 # =============================================================================
@@ -69,7 +81,7 @@ build CMakeFiles/users_site.dir/user.cpp.o: CXX_COMPILER__users_site_Debug /home
 #############################################
 # Link the executable users_site
 
-build users_site: CXX_EXECUTABLE_LINKER__users_site_Debug CMakeFiles/users_site.dir/main.cpp.o CMakeFiles/users_site.dir/user.cpp.o
+build users_site: CXX_EXECUTABLE_LINKER__users_site_Debug CMakeFiles/users_site.dir/main.cpp.o CMakeFiles/users_site.dir/garbage/user.cpp.o CMakeFiles/users_site.dir/garbage/function.cpp.o CMakeFiles/users_site.dir/garbage/parse_file.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/users_site.dir
   POST_BUILD = :
