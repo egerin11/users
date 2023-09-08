@@ -20,7 +20,7 @@ public:
     std::string mail_adds;;
 
 };
-class Site: User
+class Site: public User
 {
 public:
     std::vector<User> users;

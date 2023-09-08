@@ -73,6 +73,12 @@ build CMakeFiles/users_site.dir/garbage/parse_file.cpp.o: CXX_COMPILER__users_si
   OBJECT_DIR = CMakeFiles/users_site.dir
   OBJECT_FILE_DIR = CMakeFiles/users_site.dir/garbage
 
+build CMakeFiles/users_site.dir/garbage/run_app.cpp.o: CXX_COMPILER__users_site_Debug /home/egerin/Projects/users_site/garbage/run_app.cpp || cmake_object_order_depends_target_users_site
+  DEP_FILE = CMakeFiles/users_site.dir/garbage/run_app.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/users_site.dir
+  OBJECT_FILE_DIR = CMakeFiles/users_site.dir/garbage
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target users_site
@@ -81,7 +87,7 @@ build CMakeFiles/users_site.dir/garbage/parse_file.cpp.o: CXX_COMPILER__users_si
 #############################################
 # Link the executable users_site
 
-build users_site: CXX_EXECUTABLE_LINKER__users_site_Debug CMakeFiles/users_site.dir/main.cpp.o CMakeFiles/users_site.dir/garbage/user.cpp.o CMakeFiles/users_site.dir/garbage/function.cpp.o CMakeFiles/users_site.dir/garbage/parse_file.cpp.o
+build users_site: CXX_EXECUTABLE_LINKER__users_site_Debug CMakeFiles/users_site.dir/main.cpp.o CMakeFiles/users_site.dir/garbage/user.cpp.o CMakeFiles/users_site.dir/garbage/function.cpp.o CMakeFiles/users_site.dir/garbage/parse_file.cpp.o CMakeFiles/users_site.dir/garbage/run_app.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/users_site.dir
   POST_BUILD = :
