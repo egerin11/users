@@ -1,0 +1,7 @@
+# ninja log v5
+0	206	1694211571667263803	CMakeFiles/users_site.dir/main.cpp.o	d57e40d8ca97ebf
+1	295	1694211571757264069	CMakeFiles/users_site.dir/garbage/run_app.cpp.o	12d85f5d5f4427d
+1	330	1694211571793930844	CMakeFiles/users_site.dir/garbage/parse_file.cpp.o	2b982202fd83a944
+0	344	1694211571803930874	CMakeFiles/users_site.dir/garbage/user.cpp.o	3946afa25c55eb7
+0	369	1694211571830597619	CMakeFiles/users_site.dir/garbage/function.cpp.o	21a474d6d290c92e
+369	416	1694211571877264424	users_site	2840020d09ad706
