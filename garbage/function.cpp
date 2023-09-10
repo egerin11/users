@@ -3,13 +3,12 @@
 #include <limits>
 #include <sstream>
 #include "../lib/function.h"
-
 int get_valid_int() {
     std::string input;
     int value;
     bool is_valid = false;
     while (!is_valid) {
-        std::cout << "enter number";
+        std::cout << "enter number" << std::endl;
         std::getline(std::cin, input);
         std::istringstream iss(input);
         if (iss >> value && iss.eof()) {
@@ -40,40 +39,27 @@ int check_length(std::string& str, std::istream& (*getline_func)(std::istream&, 
     } while (LEN);
     return 1;
 }
-
-static inline int check_vector_login(std::string& str, std::vector<User>& users){
-    for(auto & user : users) {
-        if (user.login == str)
-        {
-            std::cout<<"this login already exists"<<std::endl;
-            return 0;
-        }
-    }
-    return 1;
+bool check_array(const  DynamicArray<User>& users, std::string& login) {
+	for (int i=0;i<users.get_size();i++) {
+		if (users[i].get_login() == login) {
+			std::cout << "this login already exists." << std::endl;
+			return false;
+		}
+	}
+	return true;
+}
+void check_login(std::string& str,const DynamicArray<User>& users){
+	do{
+		check_length(str,std::getline);
+	} while (!check_array(users, str));
+	
 }
 
-static int check_vector_password(std::string& str, std::vector<User>& users){
-    for(auto & user : users) {
-        if (user.password == str)
-        {
-            std::cout<<"this password already exists"<<std::endl;
-            return 0;
-        }
-    }
-    return 1;
-}
 
-void check_login(std::string& str,std::vector<User>& users,std::istream& (*getline_func)(std::istream&, std::string&))
-{
-    do {
-        check_length(str,getline_func);
-    } while (check_vector_login(str, users) != 1);
-}
-
-void check_password(std::string& str,std::vector<User>& users, std::istream& (*getline_func)(std::istream&, std::string&)) {
-    do {
-        check_length(str, getline_func);
-    } while (parse_password_file(str) != 1|| check_vector_password(str,users)!=1);
+void check_password(std::string& str){
+	do {
+		check_length(str,std::getline);
+	}while(parse_password_file(str)!=1);
 }
 
 int check_valid_mail(std::string& str){
@@ -98,26 +84,24 @@ int check_valid_mail(std::string& str){
     }
 
 }
-
-void check_mail(std::string& str,std::vector<User>& users){
+std::vector<std::string> extractWords(const std::string& input) {
+	std::vector<std::string> words;
+	std::istringstream iss(input);
+	std::string word;
+	
+	while (iss >> word) {
+		words.push_back(word);
+	}
+	
+	return words;
+}
+void check_mail(std::string& str){
 
     do{
         std::getline(std::cin,str);
     } while ( check_valid_mail(str)!=1);
 }
-void input_number(int& value, int& user_index, std::vector<User>& users) {
-    do {
-        std::cout << "enter user index: ";
-        user_index = get_valid_int();
-        if (user_index <= 0 || user_index > users.size()) {
-            std::cout << "invalid user index" << std::endl;
-            continue;
-        }
-        std::cout << "enter user value: ";
-        value = get_valid_int();
-        if (value <= 0 || value > 3) {
-            std::cout << "invalid user value" << std::endl;
-            continue;
-        }
-    } while (user_index <= 0 || user_index > users.size() || value <= 0 || value > 3);
+
+void print_user(const User& user){
+	std::cout << "User: " << user.get_id() << "\t" << user.get_login() << "\t" << user.get_mail() << "\t" << user.get_password() << std::endl;
 }
