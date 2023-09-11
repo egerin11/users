@@ -44,7 +44,6 @@ public:
 	
 	void set_id(int id) {
 		//if (m_id_setted) return;
-		
 		m_id_setted = true;
 		m_id = id;
 	}
